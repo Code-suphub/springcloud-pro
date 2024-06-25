@@ -1,0 +1,43 @@
+server:
+  port: 8001 # 服务的监听端口个
+
+
+spring:
+  application:
+    name: cloud-payment-service # 服务注册的时候在注册中心的名字，多个服务使用同一个应用名，认定为同一个服务，这个时候进行服务转发的时候才会进行调用
+  datasource: # 数据库连接池信息，如果需要使用数据库必须要用这个
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+
+mybatis: # 如果使用mybatis需要使用这个
+  mapperLocations: classpath:mapper/*.xml # mapper对应的sql的扫描路径
+  type-aliases-package: com.li.entities
+
+eureka:
+  client:
+    # 是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓
+    # 集群必须设置为 true，才能配置ribbon使用
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://eureka7002.com:7002/eureka  # 注册到服务中心的地址，多个地址通过逗号隔开，这里和 eureka 的defaultZone相对应
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true   # 访问路径可以显示IP地址(在eureka的路径中可以看到)
+
+ribbon: # ribbon超时时间
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+#feign:
+#  hystrix:
+#    enabled: true
+#    command: # 单独配置超时时间，不确定是客户端的还是服务端的
+#      default:
+#        execution:
+#          isolation:
+#            thread:
+#              timeoutInMilliseconds: 5000

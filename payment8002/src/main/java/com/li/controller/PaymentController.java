@@ -41,4 +41,11 @@ public class PaymentController {
         }
 
     }
+
+    @RequestMapping("/feign/get/time/out")
+    public String timeOut() throws InterruptedException {
+        Thread.sleep(3000);
+
+        return port;
+    }
 }

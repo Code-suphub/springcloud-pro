@@ -16,6 +16,19 @@
         <module>eureka-payment7001</module>
         <module>eureka-payment7002</module>
         <module>payment8002</module>
+        <module>payment8004</module>
+        <module>client80zk</module>
+        <module>clientFeign80</module>
+        <module>hystrix-payment8001</module>
+        <module>clientFeign-hystrix-order80</module>
+        <module>hystrix-dashboard9001</module>
+        <module>gateway-9527</module>
+        <module>payment-eureka8001</module>
+        <module>client-eureka80</module>
+        <module>payment-nacos8001</module>
+        <module>client-nacos80</module>
+        <module>payment-nacos8082</module>
+        <module>config-nacos3377</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

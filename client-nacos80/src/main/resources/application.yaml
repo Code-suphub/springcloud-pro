@@ -1,0 +1,30 @@
+server:
+  port: 80
+
+# 客户侧在uereka中的注册名称
+spring:
+  application:
+    name: hystrix-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:1000  #配置的Nacos地址（本机的写localhost:8848，服务器的写IP地址）
+
+logging:
+  level:
+    # feign 日志以什么级别监控哪个接口
+    com.li.remoteService.RemotePaymentService: debug
+
+feign:
+  hystrix:
+    enabled: true # 开启feign服务
+#    command: # 单独配置超时时间，不确定是客户端的还是服务端的
+#      default:
+#        execution:
+#          isolation:
+#            thread:
+#              timeoutInMilliseconds: 6000
+
+#消费者要访问的微服务名称（成功注册进nacos的服务提供者）
+service-url:
+  nacos-user-service: http://nacos-payment-provider

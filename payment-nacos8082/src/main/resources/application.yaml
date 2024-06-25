@@ -1,0 +1,31 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: nacos-payment-provider # 服务注册的时候在注册中心的名字，多个服务使用同一个应用名，认定为同一个服务，这个时候进行服务转发的时候才会进行调用
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  #配置的Nacos地址（本机的写localhost:8848，服务器的写IP地址）
+  datasource: # 数据库连接池信息，如果需要使用数据库必须要用这个
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+
+mybatis: # 如果使用mybatis需要使用这个
+  mapperLocations: classpath:mapper/*.xml # mapper对应的sql的扫描路径
+  type-aliases-package: com.li.entities
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+feign:
+  hystrix:
+    enabled: true # 开启feign服务

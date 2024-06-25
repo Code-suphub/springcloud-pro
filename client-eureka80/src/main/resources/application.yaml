@@ -1,0 +1,39 @@
+server:
+  port: 80
+
+# 如果客户侧不注册到注册中心，就会导致无法通过负载均衡，那么在controller中只能通过直接的ip调用，不能用 eureka 的域名调用
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+
+# 客户侧在eureka中的注册名称
+spring:
+  application:
+    name: hystrix-consumer
+
+# ribbon超时设置
+# 设置feign 客户端超时时间(OpenFeign默认支持ribbon)
+ribbon:
+  # 设置建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+  # 设置建立连接所用的时间,适用于网络状况正常的情况下,两端连接所用的时间
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    # feign 日志以什么级别监控哪个接口
+    com.li.remoteService.RemotePaymentService: debug
+
+
+feign:
+  hystrix:
+    enabled: true # 开启feign服务
+#    command: # 单独配置超时时间，不确定是客户端的还是服务端的
+#      default:
+#        execution:
+#          isolation:
+#            thread:
+#              timeoutInMilliseconds: 6000
