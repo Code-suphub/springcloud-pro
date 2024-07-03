@@ -29,6 +29,7 @@
         <module>client-nacos80</module>
         <module>payment-nacos8082</module>
         <module>config-nacos3377</module>
+        <module>rabbitmq</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
