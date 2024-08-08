@@ -20,11 +20,11 @@ public class FtpUtils {
      */
     public static void sshSftp(byte[] bytes, String fileName) throws Exception {
         //指定的服务器地址
-        String ip = "123.206.106.188";
+        String ip = "1";
         //用户名
-        String user = "root";
+        String user = "1";
         //密码
-        String password = "dhu201609.";
+        String password = "1";
         //服务器端口 默认22
         int port = 22;
         //上传文件到指定服务器的指定目录 自行修改
@@ -103,9 +103,9 @@ public class FtpUtils {
      * @throws Exception
      */
     public static byte[] sshSftpDownLoad(String fileName) throws Exception {
-        String ip = "123.206.106.188";//指定的服务器地址
-        String user = "root"; //用户名
-        String password = "dhu201609."; //密码
+        String ip = "1";//指定的服务器地址
+        String user = "1"; //用户名
+        String password = "1."; //密码
         int port = 22; //服务器端口 默认22
         String path = "/root" + fileName; //上传文件到指定服务器的指定目录 自行修改
 
