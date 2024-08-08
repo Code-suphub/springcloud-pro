@@ -1,0 +1,30 @@
+server:
+  port: 80
+
+#spring:
+#  application:
+#    name: order-client
+
+#eureka:
+#  client:
+#    # 是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓
+#    # 集群必须设置为 true，才能配置ribbon使用
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+#  七牛秘钥
+oss:
+  qiniu:
+    accessKey: 2rcUbjOpHtzZ1Pq60XU2uWd_f1DMcj4mJC-mSeyJ
+    secretKey: C--hljGofwpIPIIvUfjjijgN94yb48AucPLaYpVo
+    #图片名字
+    bucketPictureName: sunset-pictures
+    #图片外部访问拦截
+    #    domainPicture: http://space-for-lxf.s3.cn-east-1.qiniucs.com
+    domainPicture: shulr58p2.hd-bkt.clouddn.com
+    #文件名字
+    bucketFileName: space-for-lxf
+    #文件外部访问拦截
+#    domainFile: http://qiniu-file.xiyanyuanma.com/

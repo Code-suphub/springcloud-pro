@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@EnableEurekaClient
-public class OrderApplication80 {
+public class TestApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication80.class, args);
+        SpringApplication.run(TestApp.class, args);
     }
 }

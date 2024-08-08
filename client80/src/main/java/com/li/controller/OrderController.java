@@ -1,6 +1,7 @@
 package com.li.controller;
 
 
+import com.li.Anntation.NeedCheck;
 import com.li.entities.CommonResult;
 import com.li.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ public class OrderController {
 
     private static String url = "http://payment/payment/";
 
+    @NeedCheck
     @GetMapping("/consumer/payment/create/")
     public CommonResult<Payment> create(Payment payment) {
         //使用 postForEntity 内部发的是post请求
@@ -34,5 +36,16 @@ public class OrderController {
     public CommonResult<Payment> get(@PathVariable Long id) {
         // getForObject() 内部发get 请求
         return restTemplate.getForObject(url + "get/" + id, CommonResult.class);
+    }
+
+    @NeedCheck
+    @GetMapping("/need")
+    public String testNeed() {
+        return "need";
+    }
+
+    @GetMapping("/noNeed")
+    public String get() {
+        return "noNeed";
     }
 }
